@@ -14,7 +14,7 @@ import {ProgressComponent} from './component/progress/progress.component';
 import {EffectsModule} from "@ngrx/effects";
 import {MainEffects} from "../middleware/MainEffects";
 
-function logger(reducer) {
+export function logger(reducer) {
   return function (state, action) {
     console.group(action.type);
     const nextState = reducer(state, action);
@@ -26,7 +26,7 @@ function logger(reducer) {
   }
 }
 
-const metaReducers = [logger];
+export const metaReducers = [logger];
 
 const reducers = {postTag: postReducer, fetchTag: requestReducer}
 
